@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Blink Buddy (Dev)",
+  "version": "0.1.0",
+  "description": "Brief visual blink reminders at gentle intervals.",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+
+  "action": {
+    "default_title": "Blink Buddy",
+    "default_popup": "popup.html"
+  },
+
+  "permissions": ["alarms", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "sw.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
