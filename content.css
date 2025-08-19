@@ -1,0 +1,45 @@
+#bb-overlay {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bb-eye {
+  width: 60px;
+  height: 30px;
+  background: white;
+  border-radius: 50%/100%;
+  position: relative;
+  overflow: hidden;
+  animation: blink 0.8s forwards;
+}
+
+.bb-eye::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  height: 100%;
+  animation: eyelid 0.8s forwards;
+}
+
+@keyframes eyelid {
+  0%, 100% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes blink {
+  0%, 100% { background: white; }
+  50% { background: black; }
+}
